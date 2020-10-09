@@ -1,0 +1,10 @@
+<apex:page controller="TestSearchFlowController">
+    <flow:interview name="SearchWeddingFlow"/>
+    <apex:pageBlock title="検索結果">
+    	<apex:pageBlockTable value="{! weddings }" var="a">
+            <apex:column value="{!a.Name}"/>
+            <apex:column value="{!a.Field1__c}"/>
+            <apex:column value="{!a.Schedule__c}"/>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:page>

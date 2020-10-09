@@ -1,0 +1,28 @@
+<apex:page controller="SearchWeddingController">
+    <apex:form >
+    	<apex:pageBlock title="挙式検索" mode="edit">
+        	<apex:pageBlockSection >
+            	<apex:pageBlockSectionItem >
+                	<apex:outputLabel for="searchText">名前</apex:outputLabel>
+                    <apex:inputText id="searchText" value="{!searchText}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                	<apex:outputLabel for="searchBranch">支店名</apex:outputLabel>
+                    <apex:selectList id="searchBranch" value="{!branch}">
+                        <apex:selectOptions value="{!searchBranch}" />
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+                <apex:commandButton value="Go!" action="{!doSearch}"/>
+            </apex:pageBlockSection>
+            <apex:actionStatus id="status" startText="requesting..."/>
+            <apex:pageBlockSection title="結果" id="results" columns="1">
+            	<apex:pageBlockTable value="{!results}" var="l" rendered="{!NOT(ISNULL(results))}">
+                    <apex:column value="{!l.name}"/>
+                    <apex:column value="{!l.Schedule__c}"/>
+                    <apex:column value="{!l.Field1__c}"/>
+                    <apex:column value="{!l.Quote__c}"/>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

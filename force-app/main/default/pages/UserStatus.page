@@ -1,0 +1,13 @@
+<apex:page >
+	<apex:pageBlock title="User Status">
+    	<apex:pageBlockSection columns="1">
+            {! $User.FirstName } {! $User.LastName }
+            {! $User.Username }49)
+            <p>Today's Date is {! TODAY() }</p>
+            <p>Next week it will be {! TODAY() + 7 }</p>
+            {! YEAR(TODAY()) }, {! DAY(TODAY()) + 1 }, {! SQRT(49) }
+            {! 1 < 10 }
+            {! TODAY() > TODAY() - 7 }
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:page>

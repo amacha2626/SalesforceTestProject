@@ -1,0 +1,23 @@
+<apex:page controller="TestSearchController">
+    <apex:form > 
+         <apex:pageBlock title="挙式検索">
+           <apex:pageBlockSection columns="1">
+              <apex:inputText value="{!weddings.Name}" required="false"/>
+              <apex:inputField value="{!weddings.Field1__c}" required="false"/>
+              <apex:inputField value="{!weddings.Schedule__c}"  required="false"/>
+           </apex:pageBlockSection>
+           <apex:pageBlockButtons location="bottom">
+             <apex:commandButton action="{!search}" value="検索開始"/>
+           </apex:pageBlockButtons>
+         </apex:pageBlock>
+    </apex:form>
+
+    <apex:pageBlock title="検索結果">
+    	<apex:pageBlockTable value="{! results }" var="a">
+            <apex:column value="{!a.Name}"/>
+            <apex:column value="{!a.Field1__c}"/>
+            <apex:column value="{!a.Schedule__c}"/>
+
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:page>
